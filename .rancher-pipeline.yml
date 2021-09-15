@@ -4,7 +4,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: 127.0.0.1:34630/demo:${CICD_EXECUTION_SEQUENCE}
+      tag: demo:${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34630
 - name: deploy
   steps:
