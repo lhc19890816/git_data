@@ -6,7 +6,7 @@ stages:
       buildContext: .
       tag: lhc/demo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: harbor.yfw.com:180/lhc
+      registry: harbor.yfw.com:180
 - name: deploy
   steps:
   - applyYamlConfig:
