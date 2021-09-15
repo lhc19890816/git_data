@@ -4,8 +4,9 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: demo:${CICD_EXECUTION_SEQUENCE}
-      registry: 127.0.0.1:34630
+      tag: harbor.yfw.com:180/lhc/demo:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: harbor.yfw.com:180
 - name: deploy
   steps:
   - applyYamlConfig:
