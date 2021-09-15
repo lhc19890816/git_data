@@ -4,7 +4,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: demo:${CICD_EXECUTION_SEQUENCE}
+      tag: lhc/demo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: harbor.yfw.com:180/lhc
 - name: deploy
