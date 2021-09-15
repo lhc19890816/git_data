@@ -4,7 +4,8 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: harbor.yfw.com:180/lhc/nginx:v1
+      tag: demo:v1
+      registry: 127.0.0.1:34630
 - name: deploy
   steps:
   - applyYamlConfig:
