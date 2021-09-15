@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+  namespace: test    # 资源的名字，在同一个namespace中必须唯一
+  labels:   # 这里是定义Deployment的标签
+    app: demo
+spec:
+  replicas: 1  #启动pod数量
+  selector:
+    matchLabels:
+      app: demo # 选择关联Deployment标签
+  template:
+    metadata:
+      labels:  # 给Pod定义一个标签，方便其他服务关联这个Pod
+        app: demo
+    spec:
+      containers:
+        - name: demo
+          image: harbor.yfw.com:180/lhc/nginx:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              protocol: TCP
+ 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo
+spec:
+  selector:   # Service 的selector 指定标签 app:nginx 来进行对Pod进行关联 ；(这里的app:nginx就是上面Deployment配置里labels定义的标签 )
+    app: demo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: NodePort
