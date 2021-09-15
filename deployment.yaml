@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: demo
-          image: docker-registry.p-45bhm-pipeline/demo:${CICD_EXECUTION_SEQUENCE}
+          image: harbor.yfw.com:180/lhc/demo:${CICD_EXECUTION_SEQUENCE}
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
