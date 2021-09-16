@@ -6,7 +6,7 @@ stages:
       buildContext: .
       tag: lhc/demo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: 192.168.2.247:180
+      registry: index.docker.io
 - name: deploy
   steps:
   - applyYamlConfig:
