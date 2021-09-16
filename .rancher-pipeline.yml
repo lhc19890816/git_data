@@ -4,9 +4,9 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: lhc/demo:${CICD_EXECUTION_SEQUENCE}
+      tag: lhc19890816/demo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: 192.168.2.247:180
+      registry: index.docker.io
     env:
       PLUGIN_DEBUG: "true"
       PLUGIN_INSECURE: "true"
